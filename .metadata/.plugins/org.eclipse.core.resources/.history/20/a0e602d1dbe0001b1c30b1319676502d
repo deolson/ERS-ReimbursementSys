@@ -1,0 +1,16 @@
+package service;
+
+import java.util.List;
+
+import dao.UserDaoImpl;
+import models.*;
+
+public class ReimbursementServiceImpl{
+
+	UserDaoImpl myDao = new UserDaoImpl();
+	
+	public List<Reimbursement> viewAllRequests(ReimbursementType rType) {
+		return myDao.viewAllRequests();
+	}
+	
+}

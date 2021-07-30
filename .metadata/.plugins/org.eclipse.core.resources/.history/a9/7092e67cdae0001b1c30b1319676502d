@@ -1,0 +1,13 @@
+package service;
+
+import java.util.ArrayList;
+
+import dao.ReimbursementDaoImpl;
+import models.*;
+
+public class ReimbursementServiceImpl{
+
+	ReimbursementDaoImpl myDao = new ReimbursementDaoImpl();
+	
+	
+}

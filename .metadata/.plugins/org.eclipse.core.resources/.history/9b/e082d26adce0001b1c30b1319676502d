@@ -1,0 +1,21 @@
+package service;
+
+import java.util.List;
+
+import dao.UserDaoImpl;
+import models.*;
+
+public class UserServiceImpl{
+
+	UserDaoImpl myDao = new UserDaoImpl();
+	
+	public List<Reimbursement> viewAllRequests(ReimbursementType rType) {
+		return myDao.viewAllRequests();
+	}
+	
+	public User getUser(String username, String password) {
+		return myDao.getUser(username, password);
+	}
+	
+	
+}

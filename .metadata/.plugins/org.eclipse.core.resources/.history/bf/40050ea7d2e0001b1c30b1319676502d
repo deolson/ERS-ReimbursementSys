@@ -1,0 +1,66 @@
+package controllers;
+
+import java.io.IOException;
+import java.util.Arrays;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import dao.ReimbursementDaoImpl;
+
+public class LoginController {
+	
+	ReimbursementDaoImple myDao = new ReimbursementDaoImpl();
+	
+	public static void login(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException, IOException {
+		
+		String myPath = null;
+		
+		//extracting the form data
+		String username = req.getParameter("username");
+		String password = req.getParameter("uPassword");
+		
+		/*
+		 * rout guarding:
+		 * 
+		 * you may do stuff like:
+		 * "check if the user has an admin token in their session"
+		 * OR
+		 * "check if they are using the correct http method"
+		 * OR
+		 * something to that effect.
+		 */
+		if(!req.getMethod().equals("POST") || username==null || password==null){
+			myPath = "/index.html";
+			req.getRequestDispatcher(myPath).forward(req, res);
+			return;
+		}
+		
+		
+		
+		System.out.println("username"+username);
+		System.out.println("password"+password);
+		
+		
+		//check to see if the user has the correct username & password
+		//you'll actually go to th database to get the user's username and password
+		if(!(username.equals("mac") & password.equals("cheese"))) {
+			myPath = "/forwarding/incorrectcredentials";
+			req.getRequestDispatcher(myPath).forward(req, res);
+			return;
+		}else {
+			/*
+			 * you probably will have a user object that you put into the session
+			 * that contains ther username & password and some other information....THIS is just an example
+			 */
+			req.getSession().setAttribute("loggedInUsername", username);
+			req.getSession().setAttribute("loggedInPassword", password);
+			
+			myPath = "/forwarding/home";
+			req.getRequestDispatcher(myPath).forward(req, res);
+			return;
+		}
+	}
+}
