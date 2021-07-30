@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+C:\Users\dolso\Desktop\Revature Repo\2105-may24-java\david_olson_code\RevProjectOneWeb\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2530203760.index
-3626906988.index
-3775666775.index
-37220756.index
-3739590484.index
-3745270974.index
