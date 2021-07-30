@@ -24,10 +24,6 @@ public class CustomConnectionFactory {
 	 * 
 	 */
 	
-	public static String url = "jdbc:postgresql://dbinstance.cebhryfhuwfv.us-east-2.rds.amazonaws.com/ersdb";
-	public static String username= "DavidO";
-	public static String password="p4ssw0rd";
-	
 	public static Connection getConnection() throws SQLException{
 		return DriverManager.getConnection(url, username, password);
 	}
